@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fresh Mart – Dynamic Shop</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+}
+
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Fresh Mart Grocery Shop</h1>
+    <p>Dynamic Shop using ES6 JavaScript</p>
+</header>
+
+<main>
+
+<h2>Our Products</h2>
+<button id="loadProducts">Load Products</button>
+
+<div class="products" id="productList"></div>
+
+<hr>
+
+<h2>External Product Data (API)</h2>
+<button id="fetchData">Fetch Products from API</button>
+<ul id="apiData"></ul>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Fresh Mart</p>
+</footer>
+
+<script>
+
+/* ===============================
+   ARRAYS + OBJECTS (PRODUCT DATA)
+================================ */
+const products = [
+    { id: 1, name: "Rice", price: 60 },
+    { id: 2, name: "Milk", price: 50 },
+    { id: 3, name: "Apple", price: 120 }
+];
+
+/* ===============================
+   DOM MANIPULATION + EVENT
+================================ */
+const productList = document.getElementById("productList");
+document.getElementById("loadProducts").addEventListener("click", () => {
+    productList.innerHTML = "";
+
+    products.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>Price: ₹${product.price}</p>
+            <button onclick="addToCart('${product.name}')">Add to Cart</button>
+        `;
+
+        productList.appendChild(card);
+    });
+});
+
+/* ===============================
+   FUNCTION + EVENT HANDLING
+================================ */
+const addToCart = (itemName) => {
+    alert(itemName + " added to cart!");
+};
+
+/* ===============================
+   API USAGE (FETCH)
+================================ */
+document.getElementById("fetchData").addEventListener("click", fetchProducts);
+
+function fetchProducts() {
+    fetch("https://fakestoreapi.com/products?limit=5")
+        .then(response => response.json())
+        .then(data => displayApiData(data));
+}
+
+/* ===============================
+   ADVANCED DOM UPDATE
+================================ */
+const displayApiData = (items) => {
+    const list = document.getElementById("apiData");
+    list.innerHTML = "";
+
+    items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.title;
+        list.appendChild(li);
+    });
+};
+
+</script>
+
+</body>
+</html>

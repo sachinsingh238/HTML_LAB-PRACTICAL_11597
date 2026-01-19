@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fresh Mart Grocery Shop</title>
+
+<!-- INTERNAL CSS -->
+<style>
+
+/* BASIC RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BODY */
+body {
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* NAVIGATION */
+nav {
+    background: #1b5e20;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* MAIN LAYOUT */
+main {
+    padding: 20px;
+}
+
+/* SECTION BOX MODEL */
+section {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* LISTS */
+ul, ol {
+    margin-left: 20px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background: #4caf50;
+    color: white;
+}
+
+/* FLEXBOX GALLERY */
+.gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+/* FORM */
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background: #1b5e20;
+}
+
+/* FOOTER */
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Fresh Mart Grocery Shop</h1>
+    <p>Your Daily Needs at One Place</p>
+</header>
+
+<nav>
+    <a href="#">About</a>
+    <a href="#">Products</a>
+    <a href="#">Prices</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+
+<section>
+    <h2>About Us</h2>
+    <p>Fresh Mart provides fresh groceries, vegetables, fruits, and dairy products
+       at affordable prices.</p>
+
+    <ul>
+        <li>Fresh Items</li>
+        <li>Low Price</li>
+        <li>Home Delivery</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Products</h2>
+    <ol>
+        <li>Rice & Pulses</li>
+        <li>Fruits</li>
+        <li>Vegetables</li>
+        <li>Milk Products</li>
+    </ol>
+</section>
+
+<section>
+    <h2>Price List</h2>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Rice</td>
+            <td>1 Kg</td>
+            <td>₹60</td>
+        </tr>
+        <tr>
+            <td>Milk</td>
+            <td>1 Liter</td>
+            <td>₹50</td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>1 Kg</td>
+            <td>₹120</td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200">
+    </div>
+</section>
+
+<section>
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send">
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Fresh Mart Grocery Shop</p>
+</footer>
+
+</body>
+</html>

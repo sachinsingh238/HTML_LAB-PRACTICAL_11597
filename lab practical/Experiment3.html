@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fresh Mart Grocery Shop</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+}
+
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #1b5e20;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 15px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+.product {
+    margin: 10px 0;
+}
+
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Fresh Mart Grocery Shop</h1>
+    <p id="welcomeText">Welcome to our shop</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+
+<!-- JAVASCRIPT BASIC -->
+<section>
+    <h2>Greeting</h2>
+    <button onclick="changeMessage()">Click for Greeting</button>
+</section>
+
+<!-- CONTROL FLOW + FUNCTIONS -->
+<section>
+    <h2>Shop Status</h2>
+    <button onclick="checkShop()">Check Shop Open/Close</button>
+    <p id="status"></p>
+</section>
+
+<!-- DOM MANIPULATION -->
+<section>
+    <h2>Products</h2>
+
+    <div class="product">Rice - ₹60</div>
+    <div class="product">Milk - ₹50</div>
+    <div class="product">Apple - ₹120</div>
+
+    <button onclick="highlightProducts()">Highlight Products</button>
+</section>
+
+<!-- FORM + VALIDATION -->
+<section>
+    <h2>Contact Us</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Your Name"><br><br>
+        <input type="email" id="email" placeholder="Your Email"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Fresh Mart Grocery Shop</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+
+/* BASIC FUNCTION */
+function changeMessage() {
+    document.getElementById("welcomeText").innerHTML =
+    "Thanks for visiting Fresh Mart!";
+}
+
+/* CONTROL FLOW (IF-ELSE) */
+function checkShop() {
+    let hour = new Date().getHours();
+    let statusText;
+
+    if (hour >= 9 && hour <= 21) {
+        statusText = "Shop is OPEN 🟢";
+    } else {
+        statusText = "Shop is CLOSED 🔴";
+    }
+
+    document.getElementById("status").innerHTML = statusText;
+}
+
+/* DOM MANIPULATION */
+function highlightProducts() {
+    let items = document.getElementsByClassName("product");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.backgroundColor = "#c8e6c9";
+        items[i].style.padding = "10px";
+    }
+}
+
+/* FORM VALIDATION */
+function validateForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if (name === "" || email === "") {
+        alert("Please fill all fields");
+        return false;
+    } else {
+        alert("Form Submitted Successfully");
+        return true;
+    }
+}
+
+</script>
+
+</body>
+</html>
